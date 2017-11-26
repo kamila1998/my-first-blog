@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<html>
+
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'blog.css' %}">
+        <title>Django Girls blog</title>
+    </head>
+    <body>
+        {{posts}}
+
+            <h1><a href="/">Django Girls Blog</a></h1>
+
+            <p>published: 14.06.2014, 12:14</p>
+            <h2><a href="" class="btn btn-success">My post</a></h2>
+            <p class="alert alert-secondary"  role="alert"> take a competiton in django </p>
+
+            <p>published: 14.06.2014, 12:14</p>
+            <h3><a href="">My second post</a></h3>
+            <p> OOP </p>
+
+    <div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
+    </body>
+</html>
+
